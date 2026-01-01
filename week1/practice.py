@@ -6,3 +6,6 @@ def main():
   print(f'Tensor x: {x}')
 
 main()
+
+# Hello, Pytorch!
+# Tensor x: tensor([1., 2., 3.])
