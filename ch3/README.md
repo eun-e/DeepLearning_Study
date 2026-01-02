@@ -79,7 +79,7 @@ print(f "SimpleNN 출력: {output}")
 
 #### 🔍 역전파
 
-<img width="250" height="40" alt="image" src="https://github.com/user-attachments/assets/e5d7b0fe-030a-4244-b8d3-e522971d90ee" />
+<img width="150" height="40" alt="image" src="https://github.com/user-attachments/assets/e5d7b0fe-030a-4244-b8d3-e522971d90ee" />
 <img width="200" height="40" alt="image" src="https://github.com/user-attachments/assets/56b432f9-3b35-4aa1-8a9d-540fda7e7ea0" />
 
 손실 함수의 기울기를 출력층부터 입력층 방향으로 계산하는 방식으로 진행됨
