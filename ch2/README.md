@@ -77,6 +77,6 @@ chunk_result: (tensor([0, 1, 2, 3]), tensor([4, 5, 6, 7]), tensor([8, 9]))
 #### 🔍 개념 정리
 numpy 배열 덧셈은 결과가 [7 9 11 15] 이런식으로 표현되고, pytorch 텐서 덧셈은 [7, 9, 11, 15] 이런식으로 표현됨
 
-- 자동 미분(AutoGrad)기능
+- 자동 미분(AutoGrad)기능<br>
   requires_grad=True 옵션을 사용하면 텐서의 연산 기록을 추적하여 역전파를 자동 계산함
 - .to(device): 텐서를 원하는 디바이스(CPU or GPU)로 이동할 수 있음음
