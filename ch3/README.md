@@ -87,8 +87,8 @@ print(f "SimpleNN 출력: {output}")
 
 #### 🔍 손실 함수와 옵티마이저
 1. MSE: 평균 제곱 오차
-   <img width="100" height="40" alt="image" src="https://github.com/user-attachments/assets/8f0ae438-261c-494c-bb5c-aa233689d235" />
+   <img width="300" height="60" alt="image" src="https://github.com/user-attachments/assets/8f0ae438-261c-494c-bb5c-aa233689d235" />
 2. Cross Entropy: 분류 문제에서 사용되는 손실 함수로 모델의 예측 확률과 실제 정답 간의 차이를 측정함
-   <img width="100" height="40" alt="image" src="https://github.com/user-attachments/assets/4f667889-9e6c-4e44-a153-1a79f9f6e34a" />
+   <img width="300" height="60" alt="image" src="https://github.com/user-attachments/assets/4f667889-9e6c-4e44-a153-1a79f9f6e34a" />
 3. SGD: 확률적 경사 하강법, 반복마다 무작위 샘플을 선택하여 가중치를 업데이트하는 방식(일부 샘플만을 이용해 학습을 진행함) → mini batch SGD도 자주 사용됨
 4. Adam Optimizer: SGD의 단점을 보완하기 위해 개발된 옵티마이저, 일반적으로 a = 0.0001 사용
