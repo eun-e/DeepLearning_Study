@@ -21,13 +21,33 @@
 ## Chapter 3-2. 기본신경망 구조의 이해
 
 #### 🔍 단일 퍼셉트론의 기본 모델
-<img width="278" height="124" alt="image" src="https://github.com/user-attachments/assets/16dc5dbc-7a2e-4f26-8ae3-07ba0f6bb599" /> <br>
+<img width="250" height="110" alt="image" src="https://github.com/user-attachments/assets/16dc5dbc-7a2e-4f26-8ae3-07ba0f6bb599" /> <br>
 - 가중치(w): 초기에는 랜덤 값으로 설정되며, 경사 하강법과 같은 알고리즘을 통해 학습이 진행될수록 업데이트됨 → 과적합되는 경우 가중치 정규화 활용
 - 편향: 뉴런이 일정한 출력을 생성할 수 있도록 도움 if 편향이 0인 경우, 활성화 함수가 원점을 중심으로 작동하게 되어 학습 제한됨
 
 #### 🔍 다층 신경망 구조
 하나 이상의 은닉층을 포함하며 비선형 문제(XOR)를 해결할 수 있음
 - 정규화 기법: L1 및 L2 정규화, Dropout, Batch Normalization
+
 층 깊이를증가하면 신경망의 표현력이 강화되지만, 기울기 소실 문제가 발생 가능함 → Residual Connection 기법 활용
+- MLP의 출력층: 분류 문제에서는 Softmax, 회귀 문제에서는 선형 활성화 함수 사용
+- MLP의 학습 과정: 손실 함수와 Optimizer(최적화 알고리즘)이 중요한 역할을 하며 Cross-Entropy 손실 함수와 Adam Optimizer가 주로 사용됨
+
+#### 🔍 활성화 함수
+- Sigmoid 함수
+  1. 출력 범위를 (0,1)로 제한하여 확률적 해석 가능
+  2. 기울기 소실 문제 발생 가능
+  3. 이진 분류 문제에서 널리 사용됨
+     
+- ReLU 함수
+  1. 입력이 0 이하면 0 출력, 양수일 때는 그대로 출력함
+  2. sigmoid보다 학습이 빠르고 기울기 소실 문제 완화 가능
+  3. 입력값이 0 이하일 경우는 Dying ReLU 문제 발생 → Leakly ReLU 함수
+     
+- Tanh 함수
+  1. sigmoid와 유사하지만 출력 범위가 (-1,1)로 설정 → 중심이 0인 데이터 학습할 때 유리함
+  2. 기울기 소실 문제 발생 가능
+
+- 분류 문제에서는 Softmax, 회귀 문제에서는 Linear Activation function 사용 (은닉층이 아닌 출력층에서 사용)
 
 
