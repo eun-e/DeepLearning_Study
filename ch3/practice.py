@@ -29,10 +29,10 @@ criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # 학습 루프 구현
-for epoch in range(10):
-  for batch in dataloader:
+for epoch in range(10):      # 전체 데이터셋을 10번 반복 학습  
+  for batch in dataloader:   # dataloader가 데이터를 mini-batch 단위로 나눠서 (inputs, targets) 형태로 제공
     inputs, targets = batch
-    optimizer.zero_grad()
+    optimizer.zero_grad()    # pytorch는 gradient를 누적함
     outputs = model(inputs)
     loss = criterion(outputs, targets)
     loss.backward()
