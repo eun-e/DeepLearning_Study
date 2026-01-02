@@ -14,10 +14,10 @@
   ```text
   import torch
 
-  x = torch.tensor(2.0, requies_grad=True)
+  x = torch.tensor(2.0, requies_grad=True)  # 자동 미분 활성화
   y = x**2 + 3*x + 4
 
-  y.backward()
+  y.backward()                             # 자동으로 미분 계산
   print(x.grad) # x.grad는 동적으로 계산된 미분값을 출력
   ```
 
