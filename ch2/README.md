@@ -1,4 +1,4 @@
-<img width="654" height="119" alt="image" src="https://github.com/user-attachments/assets/ccde0035-586c-4677-be6e-05aa661aa7ab" />## Chapter 2-1. 텐서의 개념과 생성
+## Chapter 2-1. 텐서의 개념과 생성
 
 #### 🔍 텐서의 핵심 속성
 1. 모양: 각 차원의 크기를 의미하며 [3](1차원), [2,3](2차원) 등으로 나타남
@@ -59,7 +59,7 @@ a+b = tensor([11, 12, 13]) # b가 자동으로 인덱스가 확장됨
   1. permute: 3차원 이상 텐서에서 차원 순서를 자유롭게 변경한다
   2. squeeze: 크기가 1인 차원을 제거한다
   3. unsqueeze: 특정 위치에 차원을 추가한다
-   transpose: 행과 열의 위치를 바꾼다다
+   transpose: 행과 열의 위치를 바꾼다
 
 
 #### 📝 practice_2.py 실행 결과
@@ -79,4 +79,4 @@ numpy 배열 덧셈은 결과가 [7 9 11 15] 이런식으로 표현되고, pytor
 
 - 자동 미분(AutoGrad)기능<br>
   requires_grad=True 옵션을 사용하면 텐서의 연산 기록을 추적하여 역전파를 자동 계산함
-- .to(device): 텐서를 원하는 디바이스(CPU or GPU)로 이동할 수 있음음
+- .to(device): 텐서를 원하는 디바이스(CPU or GPU)로 이동할 수 있음
