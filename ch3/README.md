@@ -142,8 +142,24 @@ for epoch in range(10):
     print(f 'Epoch {epoch+1} , Loss: {loss.item()} ’ )
 ```
 
-
-
+#### 📝 practice_3.py 실행결과
+```text
+SimpleNN(
+  (fc1): Linear(in_features=10, out_features=20, bias=True)
+  (relu): ReLU()
+  (fc2): Linear(in_features=20, out_features=1, bias=True)
+)
+Epoch 1, Los: 1.3370896577835083
+Epoch 2, Los: 0.07489314675331116
+Epoch 3, Los: 0.7309907674789429
+Epoch 4, Los: 1.2921086549758911
+Epoch 5, Los: 0.9560152292251587
+Epoch 6, Los: 1.8302971124649048
+Epoch 7, Los: 0.09779277443885803
+Epoch 8, Los: 0.517358660697937
+Epoch 9, Los: 0.5930209159851074
+Epoch 10, Los: 1.1527591943740845
+```
 
 
 
