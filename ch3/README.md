@@ -1,4 +1,4 @@
-<img width="530" height="88" alt="image" src="https://github.com/user-attachments/assets/2fef04e2-cb21-418d-9710-56ae4e94fcfe" />## Chapter 3-1. 신경망의 개요
+## Chapter 3-1. 신경망의 개요
 
 #### 🔍 인공뉴런
 - 여러 입력값을 가중치와 함께 조합하여 연산을 수행하고, 특정 활성화 함수를 적용해 최종 출력을 생산함
@@ -78,8 +78,8 @@ print(f "SimpleNN 출력: {output}")
 → 초기화된 가중치가 다르기 때문에 확률적으로 실행될 때마다 결과가 다를 수 있음
 
 #### 🔍 역전파
-<img width="204" height="70" alt="image" src="https://github.com/user-attachments/assets/e5d7b0fe-030a-4244-b8d3-e522971d90ee" />
-<img width="270" height="63" alt="image" src="https://github.com/user-attachments/assets/56b432f9-3b35-4aa1-8a9d-540fda7e7ea0" />
+<img width="100" height="50" alt="image" src="https://github.com/user-attachments/assets/e5d7b0fe-030a-4244-b8d3-e522971d90ee" />
+<img width="150" height="40" alt="image" src="https://github.com/user-attachments/assets/56b432f9-3b35-4aa1-8a9d-540fda7e7ea0" />
 
 손실 함수의 기울기를 출력층부터 입력층 방향으로 계산하는 방식으로 진행됨
 각 층에서 가중치와 편향에 대한 편미분을 구하고, 이를 이용하여 가중치를 업데이트함
@@ -87,8 +87,8 @@ print(f "SimpleNN 출력: {output}")
 
 #### 🔍 손실 함수와 옵티마이저
 1. MSE: 평균 제곱 오차
-   <img width="257" height="78" alt="image" src="https://github.com/user-attachments/assets/8f0ae438-261c-494c-bb5c-aa233689d235" />
+   <img width="100" height="40" alt="image" src="https://github.com/user-attachments/assets/8f0ae438-261c-494c-bb5c-aa233689d235" />
 2. Cross Entropy: 분류 문제에서 사용되는 손실 함수로 모델의 예측 확률과 실제 정답 간의 차이를 측정함
-   <img width="530" height="88" alt="image" src="https://github.com/user-attachments/assets/4f667889-9e6c-4e44-a153-1a79f9f6e34a" />
+   <img width="100" height="40" alt="image" src="https://github.com/user-attachments/assets/4f667889-9e6c-4e44-a153-1a79f9f6e34a" />
 3. SGD: 확률적 경사 하강법, 반복마다 무작위 샘플을 선택하여 가중치를 업데이트하는 방식(일부 샘플만을 이용해 학습을 진행함) → mini batch SGD도 자주 사용됨
 4. Adam Optimizer: SGD의 단점을 보완하기 위해 개발된 옵티마이저, 일반적으로 a = 0.0001 사용
