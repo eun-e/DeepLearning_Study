@@ -21,12 +21,12 @@ class SimpleNN(nn.Module):
     return x
 
 # 모델 초기화
-model = SimpleNN(input_size=10, hidden_size=20, output_size=10)
+model = SimpleNN(input_size=10, hidden_size=20, output_size=1)
 print(model)
 
 # 손실 함수 및 옵티마이저 설정
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.paramters, lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # 학습 루프 구현
 for epoch in range(10):
