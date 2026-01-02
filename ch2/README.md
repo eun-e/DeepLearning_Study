@@ -49,9 +49,17 @@ a+b = tensor([11, 12, 13]) # b가 자동으로 인덱스가 확장됨
 - 불리언 마스킹: mask = tensor > 50처럼 조건 부여하면 T/F가 담긴 마스크 텐서가 생성된다 <br>
   → mask만 print하면 True/False 값이 담긴 마스크 텐서가 생성됨 <br>
   → tensor[mask]이런식으로 print하면 조건에 맞는 원소들만 나열됨
-- permute: 3차원 이상 텐서에서 차원 순서를 자유롭게 변경한다
-- squeeze: 크기가 1인 차원을 제거한다
-- unsqueeze: 특정 위치에 차원을 추가한다
+- 텐서 합치기
+  1. torch.cat: 특정 차원을 기준으로 텐서를 이어 붙인다
+  2. torch.stack: 새로운 차원을 만들어 텐서를 쌓는다
+- 텐서 나누기
+  1. torch.split: 특정 크기만큼씩 텐서를 잘라서 리스트로 변환한다, n개씩
+  2. torch.chunk: 텐서를 여러 개로 나눌 때 개수 기준으로 나눈다, n덩어리
+- 차원 조작하기
+  1. permute: 3차원 이상 텐서에서 차원 순서를 자유롭게 변경한다
+  2. squeeze: 크기가 1인 차원을 제거한다
+  3. unsqueeze: 특정 위치에 차원을 추가한다
+   transpose: 행과 열의 위치를 바꾼다다
 
 
 #### 📝 practice_2.py 실행 결과
