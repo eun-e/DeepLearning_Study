@@ -87,8 +87,60 @@ print(f "SimpleNN 출력: {output}")
 
 #### 🔍 손실 함수와 옵티마이저
 1. MSE: 평균 제곱 오차
+   
    <img width="200" height="60" alt="image" src="https://github.com/user-attachments/assets/8f0ae438-261c-494c-bb5c-aa233689d235" />
+   
 2. Cross Entropy: 분류 문제에서 사용되는 손실 함수로 모델의 예측 확률과 실제 정답 간의 차이를 측정함
+   
    <img width="550" height="70" alt="image" src="https://github.com/user-attachments/assets/4f667889-9e6c-4e44-a153-1a79f9f6e34a" />
+   
 3. SGD: 확률적 경사 하강법, 반복마다 무작위 샘플을 선택하여 가중치를 업데이트하는 방식(일부 샘플만을 이용해 학습을 진행함) → mini batch SGD도 자주 사용됨
 4. Adam Optimizer: SGD의 단점을 보완하기 위해 개발된 옵티마이저, 일반적으로 a = 0.0001 사용
+
+
+## Chapter 3-4. 파이토치를 활용한 신경망 구현
+
+#### 📝 기본 신경망 클래스 설계
+```text
+class SimpleNN(nn.Module):
+  def __init__(self, input_size, hidden_size, output_size):
+    super(SimpleNN, self).__init__() 
+    self.fc1 = nn.Linear(input_size, hidden_size)
+    self.relu = nn.ReLU() 
+    self.fc2 = nn.Linear(hidden_size, output_size) 
+    
+  def forward(self, X):     # 입력을 받아 순전파 연산을 수행하며 활성화 함수 및 층 연결을 포함함
+    x = self.fc1(x)  
+    x = self.relu(x)
+    x = self.fc2(x)
+    return x
+
+model = SimpleNN(input_size=10, hidden_size=20, output_size=1) 
+print(model)
+
+for param in model.parameters():
+  print(param.shape)
+```
+
+#### 📝 학습 및 검증 과정 구현
+```text
+criterion = nn.MSELoss() 
+optimizer = optim.Adam(mode1 .parameters() , 1r=0 .001)
+
+for epoch in range(10): 
+  for batch in data1oader: 
+    inputs, targets = batch 
+    optimizer.zero_grad() 
+    outputs = mode1(inputs) 
+    loss = criterion (outputs, targets) 
+    loss.backward() 
+    optimizer.step() 
+    print(f 'Epoch {epoch+1} , Loss: {loss.item()} ’ )
+```
+
+
+
+
+
+
+
