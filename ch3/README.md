@@ -160,7 +160,22 @@ Epoch 8, Los: 0.517358660697937
 Epoch 9, Los: 0.5930209159851074
 Epoch 10, Los: 1.1527591943740845
 ```
+<br>
 
+## Chapter 3-5. MNIST 분류기 실습
+#### 🔍 개념 정리
+- Dataloader: 미니 배치 단위로 데이터를 처리할 수 있는 기능
+- nn.Dropout(p=0.5): 은닉층에 추가해 과적합 방지
+- nn.BatchNorm1d(): 초기 학습 안정성 향상
 
+<br>
 
+## Chapter 3-6. 모델 평가 및 개선
 
+#### 🔍 개념 정리
+1. Confusion Matrix: TP, TF, FP, FN
+2. Accuracy: 전체 샘플 중에서 올바르게 분류된 샘플의 비율
+3. Precision: 모델이 긍정 클래스로 예측한 샘플 중 실제로 긍정 클래스인 비율
+4. Recall: 실제 긍정 클래스 중에서 모델이 올바르게 예측한 비율
+5. ROC Curve: 모델의 민감도와 특이도 간 관계, AUC-ROC가 1에 가까울수록 성능이 우수함
+   
