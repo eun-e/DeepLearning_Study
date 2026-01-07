@@ -8,8 +8,23 @@
   └ 이어 비선형 활성화 함수를 적용해 데이터의 복잡한 패턴을 학습함
 - 역전파: 손실 함수로부터 각 계층의 파라미터에 대한 기울기를 계산함 <br>
   └ 기울기가 너무 작아지면 가중치 업데이트가 제대로 이루어지지 않아 학습이 정체됨 (기울기 소실)
-- 손실함수: criterion = nn.MSELoss(), loss = criterion(model_out, y_true) 이런식으로 코드짜
+- 손실함수: criterion = nn.MSELoss(), loss = criterion(model_out, y_true) 이런식으로 코드짜기 <br>
+  └ 학습 단계마다 optimizer.zero_grad()를 호출해서 기울기를 초기화해야함!!
 - 자동 미분의 활용
   1. requires_grad = True로 설정된 텐서에 대해 모든 연산 기록을 자동으로 저장함
   2. loss.backward()를 호출하면 저장된 연산 기록을 기반으로 파라미터의 기울기를 자동 계산함
 - 옵티마이저: 역전파 과정에서 계산된 기울기를 기반으로, 각 파라미터를 업데이트하는 알고리즘
+
+
+## Chapter 4-2. 데이터 전처리와 DataLoader 활용
+
+#### 🔍 개념 정리
+- 정규화: 입력 특성의 스케일을 맞춰 학습이 안정될 수 있게 함
+- 데이터 증강: 학습 데이터의 다양성을 확보해 모델이 다양한상황에 대해 일반화할 수 있도록 도움 ex) transforms(회전)
+- 데이터 분할: 학습, 검증, 테스트 데이터로 나눠 일반화 성능 강화
+
+❓x의shape은 어떻게 표현될까 ... [batch_size, feature_size]
+❓이미지의 feature size 표현법: (depth, height, width)인데 depth는 흑백 이미지면 1, 컬러면 RGB(3) (cf. 투명도가 포함되면 4가 됨)
+
+view 어떻게 표현되는건지!!
+
