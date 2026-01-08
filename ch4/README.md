@@ -32,8 +32,27 @@ Epoch 100, Loss: 0.0244
 - 데이터 증강: 학습 데이터의 다양성을 확보해 모델이 다양한상황에 대해 일반화할 수 있도록 도움 ex) transforms(회전)
 - 데이터 분할: 학습, 검증, 테스트 데이터로 나눠 일반화 성능 강화
 
-❓x의shape은 어떻게 표현될까 ... [batch_size, feature_size] <br>
-❓이미지의 feature size 표현법: (depth, height, width)인데 depth는 흑백 이미지면 1, 컬러면 RGB(3) (cf. 투명도가 포함되면 4가 됨)
+## Chapter 4-3. 모델 성능 평가와 개선
 
-view 어떻게 표현되는건지!!
+#### ❓헷갈렸던 내용들
+- x의shape은 어떻게 표현될까 → [batch_size, feature_size] <br>
+- 이미지의 feature size 표현법: (depth, height, width)인데 depth는 흑백 이미지면 1, 컬러면 RGB(3) <br>
+  └ 투명도나 다른 특징이 더 포함되면 depth가 4, 5 이런식으로도 가능해짐 <br>
+-
+````text
+# 1
+self.fc1 = nn.Linear(input_size, hidden_size)
+self.relu = nn.ReLU()
+self.fc2 = nn.Linear(hidden_size, output_size)
 
+#2
+self.fc = nn.Sequential(
+    nn.Linear(28*28, 128), 
+    nn.ReLU(), 
+    nn.Linear(128, 10)
+    ) 
+
+# 1과 2의 차이점: 같은 표현이지만 sequential은 입력이 순차적으로만 흐르는 모델을 간단히 정의할 때 사용함
+# 1의 표현에서는 중간에 다른 연산이나 조건 등을 추가할 수 있음
+````
+- view()
