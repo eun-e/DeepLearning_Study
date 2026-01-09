@@ -18,3 +18,7 @@ input_image = torch.randn(1,1,6,6)    # 1개의 배치, 1개의 채널, 6X6 크�
 filter = torch.randn(1,1,3,3)
 output = F.conv2d(input_image, filter, stride=1, padding=1)
 
+
+# Pooling
+max_pooled = F.max_pool2d(feature_map, kernel_size=2, stride=2)
+avg_pooled = F.avg_pool2d(feature_map, kernel_size=2, stride=2)
