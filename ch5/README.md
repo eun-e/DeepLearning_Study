@@ -1,6 +1,6 @@
 ## Chapter 5-1. 합성곱 신경망의 기본 개념과 구조
 
-#### 📝 개념 정리
+#### 🔍 개념 정리
 - DNN: 입력층 - 여러 은닉층 - 출력층 (Fully Connected Layer만 사용) <br>
   └ 입력 데이터를 1차원 벡터로 펼쳐서(flatten) 사용함
 - CNN: Convolution layer, Pooling layer 거치고 마지막에 Fully Connected layer 사용 <br>
@@ -10,7 +10,7 @@
 
 ## Chapter 5-2. 합성곱 신경망의 주요 구성 요소
 
-#### 📝 개념 정리
+#### 🔍 개념 정리
 - Convolution layer: 입력 데이터에 필터를 적용하여 특징을 추출
 - CNN의 수직 에지 필터: [[1,0,-1],[1,0,-1],[1,0,-1]] 계산하면 결국 (왼쪽 값-오른쪽 값) <br>
   └ 보통 CNN에서 어두운 픽셀은 값이 작고(0) 밝은 픽셀은 값이 큼(1)
@@ -20,6 +20,8 @@
 - Pooling layer: 특성 맵의 공간적 크기를 줄이는 다운 샘플링 연산을 수행함 <br>
   └ max pooling, average pooling
 - 배치 정규화는 일반적으로 합성곱 레이어와 활성화 함수 사이에 위치함
+<br>
+
 
 #### ❓헷갈리는 내용 정리
 - p156; 어두운 영역에서 밝은 영역으로 변할 때 양수 값이 생성된다. <br>
@@ -29,4 +31,23 @@
   └ F는 함수 호출 방식으로 nn.Sequential 사용 불가능, 모델 구조에 안 보임
 - 풀링 크기와 스트라이드를 동일하게 설정하여 겹치지 않게 함 - 왜? 다운샘플링 목적 이루기 위해
 - 
+<br>
 
+#### 📝 practice2.py
+````text
+CNN(
+  (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu1): ReLU()
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout1): Dropout2d(p=0.25, inplace=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bn2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu2): ReLU()
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout2): Dropout2d(p=0.25, inplace=False)
+  (fc1): Linear(in_features=2048, out_features=128, bias=True)
+  (dropout3): Dropout(p=0.5, inplace=False)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+)
+````
