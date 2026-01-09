@@ -6,6 +6,7 @@
 - CNN: Convolution layer, Pooling layer 거치고 마지막에 Fully Connected layer 사용 <br>
   └ 필터로 일부 영역만 보고 같은 필터를 전체에 적용해 가중치를 공유함 <br>
   └ 입력 이미지에서 객체 위치가 달라져도 동일한 특징을 감지할 수 있음
+<br>
 
 
 ## Chapter 5-2. 합성곱 신경망의 주요 구성 요소
@@ -20,7 +21,6 @@
 - Pooling layer: 특성 맵의 공간적 크기를 줄이는 다운 샘플링 연산을 수행함 <br>
   └ max pooling, average pooling
 - 배치 정규화는 일반적으로 합성곱 레이어와 활성화 함수 사이에 위치함
-<br>
 
 
 #### ❓헷갈리는 내용 정리
@@ -30,8 +30,7 @@
 - F.relu(x) vs nn.ReLU() <br>
   └ F는 함수 호출 방식으로 nn.Sequential 사용 불가능, 모델 구조에 안 보임
 - 풀링 크기와 스트라이드를 동일하게 설정하여 겹치지 않게 함 - 왜? 다운샘플링 목적 이루기 위해
-- 
-<br>
+  
 
 #### 📝 practice2.py
 ````text
