@@ -34,7 +34,7 @@ Epoch 100, Loss: 0.0244
 
 ## Chapter 4-3. 모델 성능 평가와 개선
 
-#### ❓헷갈렸던 내용들
+#### ❓헷갈리는 내용 정리
 - x의shape은 어떻게 표현될까 → [batch_size, feature_size] <br>
 - 이미지의 feature size 표현법: (depth, height, width)인데 depth는 흑백 이미지면 1, 컬러면 RGB(3) <br>
   └ 투명도나 다른 특징이 더 포함되면 depth가 4, 5 이런식으로도 가능해짐 <br>
