@@ -66,3 +66,45 @@ CNN(
 #### 🔍 개념 정리
 - 깊은 네트워크를 효과적으로 학습시키기 위해 잔차 학습 개념을 도입함
 - 직접 연결: 입력을 직접 출력에 더하는 연결 → 기울기 소실 문제 완화, 최적화 용이성, 성능 향상
+
+<br>
+
+## Chapter 5-5. 합성곱 신경망의 성능 최적화
+
+#### 🔍 개념 정리
+- 학습률 스케줄링: lr을 상황에 따라 바꾸면서 학습 속도를 조정함 <br>
+  └ StepLR(demo_optimizer, step_size=30, gamma=0.1): 30 epoch마다 학습률을 0.1배로 줄이기 <br>
+  └ ReduceLRPlateau(demo_optimizer, mode='min', factor=0.1, patience=10) <br>
+    → mode는 loss가 줄어드는지 감시, patience는 10 epoch동안 개선 없으면 factor=0.1배로 감소 <br>
+  └ ConsineAnnealingLR(demo_optimizer, T_max=200): 200 epoch동안 한 사이
+- 가중치 초기화: 학습 시작 전에 신경망의 가중치를 어떤 값으로 시작할지 정하는 것 <br>
+  └ Kaiming(He) 초기화: ReLU 쓸 때 최적화됨 <br>
+  └ Xavier 초기화: sigmoid나 tanh 활성화 함수와 쓸 때 최적화됨 <br>
+  └ 정규 분포 초기화: 평균과 표준 편차를 지정하여 초기화함
+- 최적화 알고리즘 <br>
+  └ SGD: 가장 기본적인 알고맂므으로, 모멘텀을 추가하면 학습이 더 안정적이게됨 <br>
+  └ Adam: 적응적 학습률을 사용해 파라미터마다 다른 학습률을 적용함 <br>
+  └ RMSprop: 이동 평균을 사용해 기울기를 정규화함, 순환 신경망에서 효과 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
