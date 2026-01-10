@@ -50,3 +50,11 @@ CNN(
   (fc2): Linear(in_features=128, out_features=10, bias=True)
 )
 ````
+<br>
+
+## Chapter 5-3. 고급 합성곱 신경망 아키텍처
+
+#### 🔍 개념 정리
+VCG 네트워크: 3X3 합성곱 필터를 반복해서 사용하며, 풀링을 통해 특성 맵의 크기를 점진적으로 줄여나감 <br>
+└ 합성곱 층의 stride는 1로 설정함
+- Conv2d의 파라미터 수: 가중치는 Cout X Cin X k X k, bias는 Cout 
