@@ -73,23 +73,24 @@ CNN(
 
 #### 🔍 개념 정리
 - 학습률 스케줄링: lr을 상황에 따라 바꾸면서 학습 속도를 조정함 <br>
-  └ StepLR(demo_optimizer, step_size=30, gamma=0.1): 30 epoch마다 학습률을 0.1배로 줄이기 <br>
-  └ ReduceLRPlateau(demo_optimizer, mode='min', factor=0.1, patience=10) <br>
+  └  StepLR(demo_optimizer, step_size=30, gamma=0.1): 30 epoch마다 학습률을 0.1배로 줄이기 <br>
+  └  ReduceLRPlateau(demo_optimizer, mode='min', factor=0.1, patience=10) <br>
     → mode는 loss가 줄어드는지 감시, patience는 10 epoch동안 개선 없으면 factor=0.1배로 감소 <br>
-  └ ConsineAnnealingLR(demo_optimizer, T_max=200): 200 epoch동안 한 사이
+  └  ConsineAnnealingLR(demo_optimizer, T_max=200): 200 epoch동안 한 사이
 - 가중치 초기화: 학습 시작 전에 신경망의 가중치를 어떤 값으로 시작할지 정하는 것 <br>
-  └ Kaiming(He) 초기화: ReLU 쓸 때 최적화됨 <br>
-  └ Xavier 초기화: sigmoid나 tanh 활성화 함수와 쓸 때 최적화됨 <br>
-  └ 정규 분포 초기화: 평균과 표준 편차를 지정하여 초기화함
+  └  Kaiming(He) 초기화: ReLU 쓸 때 최적화됨 <br>
+  └  Xavier 초기화: sigmoid나 tanh 활성화 함수와 쓸 때 최적화됨 <br>
+  └  정규 분포 초기화: 평균과 표준 편차를 지정하여 초기화함
 - 최적화 알고리즘 <br>
-  └ SGD: 가장 기본적인 알고맂므으로, 모멘텀을 추가하면 학습이 더 안정적이게됨 <br>
-  └ Adam: 적응적 학습률을 사용해 파라미터마다 다른 학습률을 적용함 <br>
-  └ RMSprop: 이동 평균을 사용해 기울기를 정규화함, 순환 신경망에서 효과 
+  └  SGD: 가장 기본적인 알고맂므으로, 모멘텀을 추가하면 학습이 더 안정적이게됨 <br>
+  └  Adam: 적응적 학습률을 사용해 파라미터마다 다른 학습률을 적용함 <br>
+  └  RMSprop: 이동 평균을 사용해 기울기를 정규화함, 순환 신경망에서 효과 
+- 양자화: 모델의 가중치와 활성화 값을 정밀도가 낮은 데이터 타입으로 변환해 모델 크기를 줄임
+- 지식 증류: 큰 모델의 지식을 작은 모델로 전달하는 기법
 
 
-
-
-
+#### ❓헷갈리는 개념들
+- nn.Conv2d(in_channels, out_channels, kernel_size) 형태는 항상 바뀌지 않는데 첫 번째 Conv일 때만 앞에 이미지 채널(RGB, 흑백)이 옴 → 어차피 다 input 개념임, 두 번째 Conv부터는 이전 Conv가 만든 feature map 크기
 
 
 
