@@ -5,5 +5,12 @@
   └ 관측값이 시간적인 의존성을 가짐
 - RNN(순환 신경망): 이전 단계의 정보를 기억하는 순환 구조를 가짐 (은닉층의 뉴런이 자기 자신과 연결)
   <img width="298" height="52" alt="image" src="https://github.com/user-attachments/assets/871c09b3-6f27-45df-9504-ce71a3016019" /> <img width="177" height="56" alt="image" src="https://github.com/user-attachments/assets/49448e73-07d5-4cfc-ab28-74e05b34fc6e" />
-
 -
+
+
+
+#### ❓헷갈리는 내용 정리
+1. RNN은 왜 기울기 소실과 기울기 폭발이 심각한 문제일까?
+   RNN에서 Whh는 시점에 관계없이 항상 고정된 값을 가짐, h(t-1)이랑 h(t)만 변함 <br>
+   <img width="215" height="66" alt="image" src="https://github.com/user-attachments/assets/df0b9fad-d047-4ddb-bf19-f79bbc5a0357" />
+   Chain rule에 의해 가중치가 거듭적으로 곱해지기 때문에 W<1이면 기울기 소실, W가 크면 기울기 폭발이 일어남
