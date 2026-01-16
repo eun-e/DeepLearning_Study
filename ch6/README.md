@@ -60,7 +60,11 @@
 - 2단계: 가변 길이 시퀀스 처리를 위해 패딩과 배치 처리를 함
 - Attention mechanism을 추가해 중요한 단어에 더 집중할 수 있음
 
-## Chapter 6-6. 
+
+#### ✏️ 추가 정리
+- Encoder: 과거 시게열 전체를 읽음, 핵심 패턴을 hidden state로 압축함
+- Decoder: encoder가 만든 context를 받아 미래 시계열을 한 스텝씩 생성함
+
 
 
 
