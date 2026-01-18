@@ -31,9 +31,9 @@
 - GRU: LSTM의 간소화 버전<br>
   └ 업데이트 게이트와 리셋 게이트만 사용, 별도의 셀 상태 없이 은닉 상태만 사용
 - BRNN: 시퀀스를 정방향과 역방향으로 처리하는 구조<br>
-  └ 출력 텐서: (batch_size, sequence_length, hidden_size*2) <br>
-  └ 최종 은닉 상태 : (num_layers*2, batch_size, hidden_size)<br>
-  └  최종 셀 상태: (num_layers*2, batch_size, hidden_size)
+  └ 출력 텐서: (batch_size, sequence_length, hidden_sizeX2) <br>
+  └ 최종 은닉 상태 : (num_layersX2, batch_size, hidden_size)<br>
+  └ 최종 셀 상태: (num_layersX2, batch_size, hidden_size)
 <br>
 
 ## Chapter 6-3. 파이토치를 이용한 순환 신경망 구현 (기본)
