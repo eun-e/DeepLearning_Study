@@ -8,4 +8,7 @@
 1. Forget gate: 이전 기억을 얼마나 유지할지(버릴지) 비율을 결정함
 2. Input gate: 새 정보 중 어떤 정보를 저장할 결정함
 3. Output gate: 어떤 정보를 출력할 결정함
+<br>
+
+### Gate는 sigmoid, State는 tanh를 쓰는 이유
 
