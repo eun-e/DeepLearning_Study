@@ -36,7 +36,7 @@ LSTM은 기억 관리자인 gate가 포함됨
 
 ### ⭐ Window 생성
 - 과거 N개를 한 묶음(윈도우)로 만드는 과정
-````text
+````python
 def create_windows(data, window_size, horizon=1):
   # data는 시계열 데이터, window_size는 과거를 몇 개 볼지, horizon은 몇 칸 뒤를 예측할지를 의미함
   X, y = [] , []
@@ -47,9 +47,7 @@ def create_windows(data, window_size, horizon=1):
     y.append(data[i + window_size + horizon - 1]) 
   return np.array(X), np.array(y)
 ````
-<img width="823" height="467" alt="image" src="https://github.com/user-attachments/assets/e66d1f00-d4fd-4c55-bcab-24f771aefa15" />
-
-
+<img width="903" height="427" alt="image" src="https://github.com/user-attachments/assets/98d4c7cf-8b3b-4e88-a199-d344a3840b67" />
 
 
 
