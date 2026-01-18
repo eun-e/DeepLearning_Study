@@ -25,7 +25,10 @@ LSTM은 기억 관리자인 gate가 포함됨
 3. cell state가 없는 대신 hidden state가 그 역할까지 대신함
 <br>
 
-### 📌 LSTM shape
+### ⭐ LSTM shape
 - 출력 텐서: (batch_size, sequence_length, hidden_sizeX2) <br>
   최종 은닉 상태 : (num_layersX2, batch_size, hidden_size) <br>
   최종 셀 상태: (num_layersX2, batch_size, hidden_size)
+- 문장의 단어 개수가 T일 때, x = (batch_size, T, input_size) 이렇게 됨   
+- 출력 텐서는 모든 시점의 hidden state를 다 모아둔 것이어서 중간 과정 결과임 (시간별 정보가 필요할 때 사용)
+- 최종 은닉이랑 셀은 T 시점일 때 찍은거기 때문에 sequence length가 필요 없음
