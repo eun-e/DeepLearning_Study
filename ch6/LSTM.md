@@ -57,7 +57,7 @@ def create_windows(data, window_size, horizon=1):
 <br>
 
 ### ⭐ map
-<img width="466" height="419" alt="image" src="https://github.com/user-attachments/assets/9b3969a5-fd9c-4503-9067-3359ac8221b7" />
+<img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/9b3969a5-fd9c-4503-9067-3359ac8221b7" />
 
 
 
