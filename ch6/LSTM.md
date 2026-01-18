@@ -48,6 +48,16 @@ def create_windows(data, window_size, horizon=1):
   return np.array(X), np.array(y)
 ````
 <img width="750" height="400" alt="image" src="https://github.com/user-attachments/assets/b845eb20-2394-4898-8572-e7e24d9b327e" />
+<br>
+
+### 📌 Attention
+- 전체 시퀀스 중에서 중요한 부분만 골라서 집중해서 보는 장치
+- Attention이 없으면 마지막 단어에만 치우쳐서 예측하고 있으면 각 hidden의 중요도를 봄
+- 즉, 모든 time step의 정보를 동등하게 보지 않고 중요도를 학습해서 가중합을 만듦
+<br>
+
+### ⭐ map
+<img width="466" height="419" alt="image" src="https://github.com/user-attachments/assets/9b3969a5-fd9c-4503-9067-3359ac8221b7" />
 
 
 
