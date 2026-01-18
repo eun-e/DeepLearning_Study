@@ -47,7 +47,7 @@ def create_windows(data, window_size, horizon=1):
     y.append(data[i + window_size + horizon - 1]) 
   return np.array(X), np.array(y)
 ````
-<img width="903" height="427" alt="image" src="https://github.com/user-attachments/assets/98d4c7cf-8b3b-4e88-a199-d344a3840b67" />
+<img width="750" height="400" alt="image" src="https://github.com/user-attachments/assets/b845eb20-2394-4898-8572-e7e24d9b327e" />
 
 
 
