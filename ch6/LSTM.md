@@ -17,9 +17,15 @@ LSTM은 기억 관리자인 gate가 포함됨
 ### ⭐ Gate는 sigmoid, State는 tanh를 쓰는 이유
 - Gate는 얼마나 통과시킬지 정하는 조절기이기 때문에 0~1 비율로 맞춰야함
 - State는 내용을 저장함 (긍정/부정, 방향성 등)
+<br>
 
 ### 📌 GRU와 차이점
 1. Update gate: 과거 정보를 얼마나 유지할지 결정 → Forget+Input gate 역할 동시에 함
 2. Reset gate: 이전 정보를 얼마나 무시할지 결정
 3. cell state가 없는 대신 hidden state가 그 역할까지 대신함
-   
+<br>
+
+### 📌 LSTM shape
+- 출력 텐서: (batch_size, sequence_length, hidden_sizeX2) <br>
+  최종 은닉 상태 : (num_layersX2, batch_size, hidden_size) <br>
+  최종 셀 상태: (num_layersX2, batch_size, hidden_size)
