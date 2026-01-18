@@ -57,7 +57,7 @@ def create_windows(data, window_size, horizon=1):
 <br>
 
 ### ⭐ map
-<img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/9b3969a5-fd9c-4503-9067-3359ac8221b7" />
+<img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/9b3969a5-fd9c-4503-9067-3359ac8221b7" /> <br>
 1. Embedding: 단어를 의미 있는 벡터로 바꾸는 일
 2. Padding: 문장 길이를 맞춤 (비는 자리는 0으로 채움)
 3. Mask: padding을 무시하라고 알려주는 신호
