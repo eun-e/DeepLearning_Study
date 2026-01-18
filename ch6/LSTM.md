@@ -32,3 +32,24 @@ LSTM은 기억 관리자인 gate가 포함됨
 - 문장의 단어 개수가 T일 때, x = (batch_size, T, input_size) 이렇게 됨   
 - 출력 텐서는 모든 시점의 hidden state를 다 모아둔 것이어서 중간 과정 결과임 (시간별 정보가 필요할 때 사용)
 - 최종 은닉이랑 셀은 T 시점일 때 찍은거기 때문에 sequence length가 필요 없음
+<br>
+
+### ⭐ Window 생성
+- 과거 N개를 한 묶음(윈도우)로 만드는 과정
+````text
+def create_windows(data, window_size, horizon=1):
+  # data는 시계열 데이터, window_size는 과거를 몇 개 볼지, horizon은 몇 칸 뒤를 예측할지를 의미함
+  X, y = [] , []
+  # X는 입력(과거 묶음들), y는 정답(미래 값들)
+  for i in range(len(data) - window size - horizon + 1): 
+    X.append(data[i:(i + window_size)])
+    # i번째부터 시작해서 window_size개 만큼 연속된 데이터 append하기
+    y.append(data[i + window_size + horizon - 1]) 
+  return np.array(X), np.array(y)
+````
+<img width="823" height="467" alt="image" src="https://github.com/user-attachments/assets/e66d1f00-d4fd-4c55-bcab-24f771aefa15" />
+
+
+
+
+
