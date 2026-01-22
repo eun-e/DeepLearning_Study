@@ -9,6 +9,7 @@
 - Query와 Key를 이용해 raw attention score 구하기<br>
 
 - 자기 집중(self-focus)와 문맥적 연관성(contextual links)을 동시에 학습
+- Multi-head attention: self-attention을 여러 번 병렬로 수행해 다양한 표현으로 학습함
 
 #### ❓ 보충 내용 정리
 1. @ code 의미: 행렬 곱 (cf. *는 원소별 곱)
