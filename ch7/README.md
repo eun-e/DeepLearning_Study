@@ -38,8 +38,11 @@ scores = Q @ K.T / np.sqrt(self.d_model)
 <img width="300" height="50" alt="image" src="https://github.com/user-attachments/assets/1bcdb1ed-ae43-48f7-8046-e3a57fed1d33" /> <br>
 5. Encoder-Decoder attention vs self-attention
    1) self-attention
-      -df
-   - encoder-decoder attetion은 서로 다른 sequence 참
+      - 같은 sequence 안에서 참고
+      - Q, K, V 모두 같은 sequence에서 나옴
+   2) Encoder-decoder 
+     - 서로 다른 sequence 참고
+     - Q는 Decoder, Key&Value는 Encoder 내용을 참고
 
 
 ## Chapter 7-2. 사전 학습 모델 활용과 전이 학습 통합
