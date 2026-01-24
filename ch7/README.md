@@ -46,6 +46,8 @@ scores = Q @ K.T / np.sqrt(self.d_model)
      - Q는 Decoder, Key&Value는 Encoder 내용을 참고
 
 
+<br>
+
 ## Chapter 7-2. 사전 학습 모델 활용과 전이 학습 통합
 
 #### 🔍 개념 정리
