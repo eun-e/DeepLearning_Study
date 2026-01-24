@@ -10,6 +10,10 @@
 
 - 자기 집중(self-focus)와 문맥적 연관성(contextual links)을 동시에 학습
 - Multi-head attention: self-attention을 여러 번 병렬로 수행해 다양한 표현으로 학습함
+- Post wise Feed Forward Networks: 각 위치에서 독립적으로 적용되는 완전 연결 네트워크 <br>
+  - 비선형 변환 수행
+  - feed forward network를 각 위치에 개별적으로 적용함
+- Encoder-Decoder: 입력 시퀀스를 받아 고차원적인 표현으로 인코딩하고 인코더의 출력을 받아 최종 출력 시퀀스를 생성
 
 #### ❓ 보충 내용 정리
 1. @ code 의미: 행렬 곱 (cf. *는 원소별 곱)
@@ -30,7 +34,10 @@ V = embeddings @ W_v # Value: " 나의 실제 정보”
 scores = Q @ K.T / np.sqrt(self.d_model)
 ````
 4. X는 단어 임베딩(의미, 위치, 문맥 정보 등 전부 섞여 있음), W는 학습되는 투영 행렬(무엇을 중요하게 볼 지 결정)
-<img width="300" height="50" alt="image" src="https://github.com/user-attachments/assets/1bcdb1ed-ae43-48f7-8046-e3a57fed1d33" />
+<img width="300" height="50" alt="image" src="https://github.com/user-attachments/assets/1bcdb1ed-ae43-48f7-8046-e3a57fed1d33" /> <br>
+5. Encoder-Decoder attention vs self-attention
+   1) self-attention은 같은 sequence 안에서 참고
+   - encoder-decoder attetion은 서로 다른 sequence 참
 
 
 ## Chapter 7-2. 사전 학습 모델 활용과 전이 학습 통합
