@@ -14,7 +14,8 @@
   - 비선형 변환 수행
   - feed forward network를 각 위치에 개별적으로 적용함
 - Encoder-Decoder: 입력 시퀀스를 받아 고차원적인 표현으로 인코딩하고 인코더의 출력을 받아 최종 출력 시퀀스를 생성
-
+  
+<br>
 #### ❓ 보충 내용 정리
 1. @ code 의미: 행렬 곱 (cf. *는 원소별 곱)
 2. W_q, W_k, W_v가 전부 같아 보여도 randn로 생성했기 때문에 값이 전부 다름<br>
@@ -36,7 +37,8 @@ scores = Q @ K.T / np.sqrt(self.d_model)
 4. X는 단어 임베딩(의미, 위치, 문맥 정보 등 전부 섞여 있음), W는 학습되는 투영 행렬(무엇을 중요하게 볼 지 결정)
 <img width="300" height="50" alt="image" src="https://github.com/user-attachments/assets/1bcdb1ed-ae43-48f7-8046-e3a57fed1d33" /> <br>
 5. Encoder-Decoder attention vs self-attention
-   1) self-attention은 같은 sequence 안에서 참고
+   1) self-attention
+      -df
    - encoder-decoder attetion은 서로 다른 sequence 참
 
 
