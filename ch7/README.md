@@ -57,7 +57,7 @@ scores = Q @ K.T / np.sqrt(self.d_model)
 - Encoder-Decoder attention
   - Decoder는 지금까지 만든 출력 토큰들을 기반으로 다음에 뭘 만들지 결정하고 있음
   - Encoder는 입력 문장을 처리해서 입력에 대한 요약들만 가지고 있음
-- 🧷 예시
+- 🧷 예시<br>
   입력 
 
 
