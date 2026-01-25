@@ -58,7 +58,8 @@ scores = Q @ K.T / np.sqrt(self.d_model)
   - Decoder는 지금까지 만든 출력 토큰들을 기반으로 다음에 뭘 만들지 결정하고 있음
   - Encoder는 입력 문장을 처리해서 입력에 대한 요약들만 가지고 있음
 - 🧷 예시<br>
-  입력 
+  입력(encoder): I love deep learning <br>
+  -> encoder는 각 단어를 처리해서 h1(I 정보), h2(love 정보) .. 이런식으로 정보를 만듦
 
 
 ## Chapter 7-2. 사전 학습 모델 활용과 전이 학습 통합
