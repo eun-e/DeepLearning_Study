@@ -35,7 +35,7 @@ V = embeddings @ W_v # Value: " 나의 실제 정보”
 ````python
 scores = Q @ K.T / np.sqrt(self.d_model)
 ````
-4. X는 단어 임베딩(의미, 위치, 문맥 정보 등 전부 섞여 있음), W는 학습되는 투영 행렬(무엇을 중요하게 볼 지 결정)
+4. X는 단어 임베딩(의미, 위치, 문맥 정보 등 전부 섞여 있음), W는 학습되는 투영 행렬(무엇을 중요하게 볼 지 결정) <br>
 <img width="300" height="50" alt="image" src="https://github.com/user-attachments/assets/1bcdb1ed-ae43-48f7-8046-e3a57fed1d33" /> <br>
 5. Encoder-Decoder attention vs self-attention
    1) self-attention
