@@ -59,7 +59,7 @@ scores = Q @ K.T / np.sqrt(self.d_model)
   - Encoder는 입력 문장을 처리해서 입력에 대한 요약들만 가지고 있음
 - 🧷 예시<br>
   입력(encoder): I love deep learning <br>
-  -> encoder는 각 단어를 처리해서 h1(I 정보), h2(love 정보) .. 이런식으로 정보를 만듦
+  -> encoder는 각 단어를 처리해서 h1(I 정보), h2(love 정보) .. 이런식으로 정보를 만듦 <br>
   -> 생성된 출력은 나는 .. 일 때, 다음 단어로 사랑한다를 만들려는 순간 "지금 사랑한다를 만들 때 입력에서 어떤 부분을 참고해야 하지? 라는 질문이 decoder의 상태가 됨
 
 
