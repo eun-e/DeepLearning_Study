@@ -42,8 +42,8 @@ scores = Q @ K.T / np.sqrt(self.d_model)
       - 같은 sequence 안에서 참고
       - Q, K, V 모두 같은 sequence에서 나옴
    2) Encoder-decoder 
-     - 서로 다른 sequence 참고
-     - Q는 Decoder, Key&Value는 Encoder 내용을 참고
+      - 서로 다른 sequence 참고
+      - Q는 Decoder, Key&Value는 Encoder 내용을 참고
 
 
 <br>
