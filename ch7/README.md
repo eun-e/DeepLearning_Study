@@ -48,6 +48,19 @@ scores = Q @ K.T / np.sqrt(self.d_model)
 
 <br>
 
+#### ⭐ 영원히 헷갈림
+- Query: 내가 지금 찾고 싶은 기준(질문)
+- Key: 각 후보가 가진 특징
+- Value: 후보가 실제로 제공할 내용
+  - Attention은 Q가 기준을 세우고 모든 K와 비교해서 누가 Q랑 제일 맞는지 점수를 만들고 그 점수로 V들을 가중합함
+  - Self-attention: 같은 sequence 안에서 참고하기 때문에 모두 같은 문장에서 나옴
+- Encoder-Decoder attention
+  - Decoder는 지금까지 만든 출력 토큰들을 기반으로 다음에 뭘 만들지 결정하고 있음
+  - Encoder는 입력 문장을 처리해서 입력에 대한 요약들만 가지고 있음
+- 🧷 예시
+  입력 
+
+
 ## Chapter 7-2. 사전 학습 모델 활용과 전이 학습 통합
 
 #### 🔍 개념 정리
