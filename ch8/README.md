@@ -13,10 +13,10 @@
     4. 경계 상자 회귀기: 객체의 정확한 위치와 크기를 조정하는 네트워크
     5. 후처리: 중복된 탐지 결과 제거 
 - IOU: 객체 탐지 모델의 성능을 평가하는 핵심 지표 (0.5 이상이면 올바른 탐지로 간주)<br>
-  <img width="565" height="54" alt="image" src="https://github.com/user-attachments/assets/957619ea-401e-49b0-9079-34c3fcd29348" /><br>
+  <img width="450" height="45" alt="image" src="https://github.com/user-attachments/assets/957619ea-401e-49b0-9079-34c3fcd29348" /><br>
 - mAP:모든 클래스에 대한 Average Precision 평균값으로 전반적인 성능을 평가함
 - Segmentation: 이미지의 각 픽셀을 의미 있는 영역으로 분할하는 작업
-  1. 의미론적 - 이미지의 각 픽셀을 미리 정의된 클래스로 분류함 (같은 클래스에 속하는 서로 다른건 구분 X)
+  1. 의미론적 - 이미지의 각 픽셀을 미리 정의된 클래스로 분류함 
   2. 인스턴스 - 같은 클래스의 서로 다른 인스턴스를 구분함
  
 #### ❓추가 정리 사항
