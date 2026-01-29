@@ -73,13 +73,40 @@ cf. 마스크: 관심 있는 객체는 1로 아닌 픽셀은 0으로 두어 행�
 4. IoU가 지정된 임계값보다 큰 모든 탐지 결과를 제거함
 5. 남은 탐지 결과에 대해 2~4단계를 반복함
 ````
+- YOLO: 단일 단계 객체 탐지 알고리즘으로 이미지를 한 번만 처리해 객체의 위치와 클래스를 동시에 예측함
+  1. 단일 네트워크: 하나의 합성곱 네트워크가 바운딩 박스와 클래스 확률을 동시에 예측함
+  2. 그리드 기반 접근: 이미지를 SXS 그리드로 나누고, 각 그리드 셀이 객체의 중심을 포함하면 해당 셀이 객체 탐지를 담당함
 <br>
 
 #### ❓추가 정리 사항
 - 바운딩 박스: 실제로 물체를 감싸는 사각형
-  - [x_center, y_center, width, height]
 - 앵커 박스: '이 위치엔 이런 크기의 물체가 있을 수도 있다'라고 미리 가정해 두는 상자들
   - 이미지 전체에 격자처럼 미리 배치
   - 크기/비율이 여러 개
   - 모델이 '이 앵커를 조금 오른쪽으로, 조금 작게 하면 정답이다' 같이 보정함(offset 문제)
 - 앵커 박스 + offset 예측 = 바운딩 박스
+- anchors = [x_center, y_center, width, height]
+  - anchors[:,0] → 앵커 중심 x
+  - anchors[:,1] → 앵커 중심 y
+  - anchors[:,2] → 앵커 width
+  - anchors[:,3] → 앵커 height
+````python
+def encode_boxes(anchors, gt_boxes): 
+# 앵커 박스에 대한 실제 바운딩 박스의 오프셋 계산
+  # 정답 박스 중심이 앵커 중심에서 width의 몇 배만큼 이동했나
+  tx = (gt_boxes[:, 0] - anchors[:, 0]) / anchors[:, 2]
+  # 정답 박스 중심이 앵커 중심에서 height의 몇 배만큼 이동했나
+  ty = (gt_boxes[:, 1] - anchors[:, 1]) / anchors[:, 3] 
+  tw = torch.log(gt_boxes[:, 2] / anchors[:, 2]) 
+  th = torch.log(gt_boxes[:, 3] / anchors[:, 3]) 
+  return torch.stack([tx, ty, tw, th] , dim=1) # return 값이 offset임
+
+def decode_boxes(anchors, offsets): 
+  # 예측된 오프셋을 사용하여 앵커 박스 변환 
+  x = offsets[:, 0] * anchors[:, 2] + anchors[:, 0] 
+  y = offsets[:, 1] * anchors[:, 3] + anchors[:, 1] 
+  w = torch.exp(offsets[:, 2]) * anchors[ , 2]
+  h = torch.exp(offsets[:, 3]) * anchors[:, 3] 
+  return torch.stack([x, y, w, h] , dim=1)
+````
+
