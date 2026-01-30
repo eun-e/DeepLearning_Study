@@ -140,8 +140,19 @@ def decode_boxes(anchors, offsets):
 [1 9]
 [3 4]
 
-⚠️ 9가 어디에 있었는지 정보가 사라짐 → 디코더로도 위치 정보를 만들어내지 못함 → Skip connection 쓰기 
+⚠️ 9가 어디에 있었는지 정보가 사라짐 → 디코더로도 위치 정보를 만들어내지 못함 → Skip connection 쓰기
+**BUT** pooling 이전의 encoder 얕은 층에는 위치 정보가 남아 있음
+
+🗒️각 해상도 단계에서 pooling 이전의 인코더 feature를 저장해두었다가, 같은 해상도로 upsampling된 디코더 feature와 채널 방향으로 concat하여 위치 정보와 의미 정보를 함께 사용
+🗒️concat하고 conv까지 해야 완성(위치+의미 정보를 자동 학습함)
+
+⭐ 인코더는 여러 단계에서 pooling을 하며 feature를 만들고, 디코더는 각 단계에 대응되는 해상도에서 upsampling을 수행함
+→ 각 단계마다 pooling 이전의 encoder feature와 upsampling된 decoder feature를 concat함
 ````
+- concat: 채널 방향으로 그냥 붙이는 것
+  - encoder feature = H x W x 32
+  - decoder feature = H x W x 64<br>
+    → concat feature = H x w x 96
 
 <br>
 
