@@ -48,8 +48,8 @@
    - semantic + instance 합친 것
    - 모든 픽셀에 클래스 정보 + 인스턴스 ID
    - 인스턴스와 달리 도로, 하늘, 벽, 잔디 등도 다 의미론적 분할로 처리
-<br>
 cf. 마스크: 관심 있는 객체는 1로 아닌 픽셀은 0으로 두어 행렬 만들기
+
 <br>
 
 ## Chapter 8-2. ResNet 구현과 활용
@@ -135,7 +135,13 @@ def decode_boxes(anchors, offsets):
     - CNN+max pooling: 저수준 → 고수준 특징 추출
   - 디코더: 그 표현을 이용해 원래 형태로 복원하거나 새로운 출력 생성
     - upsampling: 해상도 복원
+````text
+2x2 max pooling의 결과 = [9]
+[1 9]
+[3 4]
 
+⚠️ 9가 어디에 있었는지 정보가 사라짐 → 디코더로도 위치 정보를 만들어내지 못함 → Skip connection 쓰기 
+````
 
 <br>
 
