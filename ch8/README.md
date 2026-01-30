@@ -166,8 +166,13 @@ def decode_boxes(anchors, offsets):
   3. 최대 투표: 분류 작업에서 각 모델이 예측한 클래스 중 가장 많이 선택된 클래스를 최종예측으로 선택함
   4. 스태킹: 기본 모델의 예측을 입력으로 사용하는 메타 모델을 학습시킴
 - 테스트 시간증강: 추론 단게에서 입력 이미지에 여러 변환을 적용하고, 각 변환된 이미지에 대한 예측 결과를 결합해 최종 예측의 정확도를 향상시키는 기법
-    
-####❓추가 정리 사항
-<img width="547" height="320" alt="image" src="https://github.com/user-attachments/assets/181e5624-e5c3-4f07-a284-0dac10f88d88" /> <br>
+
+#### ❓추가 정리 사항
 - Cross-stitch unit: 두 네트워크의 feature를 섞되, 얼마나 섞을지를 학습하는 장치 <br>
 <img width="305" height="104" alt="image" src="https://github.com/user-attachments/assets/f05a4b52-a3b0-45bc-a41b-9bdf85941978" />
+````text
+FA: Network A feature
+FB: Network B feature
+
+Network A는 자기 정보 αAA​FA와 상대 정보 αAB​FB의 합으로 이루어짐
+````​
