@@ -169,10 +169,11 @@ def decode_boxes(anchors, offsets):
 
 #### ❓추가 정리 사항
 - Cross-stitch unit: 두 네트워크의 feature를 섞되, 얼마나 섞을지를 학습하는 장치 <br>
-<img width="305" height="104" alt="image" src="https://github.com/user-attachments/assets/f05a4b52-a3b0-45bc-a41b-9bdf85941978" />
+<img width="305" height="104" alt="image" src="https://github.com/user-attachments/assets/f05a4b52-a3b0-45bc-a41b-9bdf85941978" /><br>
 ````text
 FA: Network A feature
 FB: Network B feature
 
 Network A는 자기 정보 αAA​FA와 상대 정보 αAB​FB의 합으로 이루어짐
+α는 가중치로 back propagation으로 점차 조정됨, 초기값은 보통 자기 정보는 0.9, 상대 정보는 0.1로 시작 
 ````​
