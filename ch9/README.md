@@ -20,4 +20,30 @@
        - 글로브: 전체 말뭉치의 통계적 정보를 이용해 임베딩 학습함, 단어 ij가 같은 문맥에서 얼마나 자주 등장했는지
        - 문맥 기반 임베딩: 같은 단어라도 문맥에 따라 서로 다른 벡터 얻
 - 모델링 방법
-  1. ㅇㄹㅇ
+  1. 순환 신경망(RNN): 장기 의존성 문제에 의해 긴 문장에서는 초기 정보가 잘 전달되지 않음
+  2. LSTM: 오래된 정보는 기억하고 불필요한 정보는 잊는 메커니즘
+     - 셀 상태: 내부 메모리를 유지함
+     - 게이트: 정보를 저장할지 버릴지 결정함 (입력, 출력, 망각 게이트)
+  3. GRU: LSTM을 간소화해 셀 상태를 따로 두지 않고 은닉 상태에 통합해 구조를 단순화함 (업데이트 게이트, 리셋 게이트)
+     ````python
+     class LSTMGateExplainer:
+  def explain_gates(self, important_info, current_input, memory):
+    forget_decision = self.forget_gate(memory, current_input)
+    remember_decision = self.input_gate(current_input)
+    output_decision = self.output_gate(memeory, current_input)
+
+  def forget_gate(self, memory, current):
+    if "날씨" in current or "점심" in current:
+      return "일상적인 정보"
+    return "중요 정보 유지"
+
+  def input_gate(self, current):
+    if "비밀번호" in current or "중요" in current:
+      return "핵심 정보"
+    return "일반 정보"
+
+  def output_gate(self, memory, current):
+    if "금고" in current:
+      return "비밀번호 관련 정보"
+    return "일반 응답"
+  ```` 
