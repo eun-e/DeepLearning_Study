@@ -24,8 +24,7 @@
   2. LSTM: 오래된 정보는 기억하고 불필요한 정보는 잊는 메커니즘
      - 셀 상태: 내부 메모리를 유지함
      - 게이트: 정보를 저장할지 버릴지 결정함 (입력, 출력, 망각 게이트)
-  3. GRU: LSTM을 간소화해 셀 상태를 따로 두지 않고 은닉 상태에 통합해 구조를 단순화함 (업데이트 게이트, 리셋 게이트)
-     ````python
+       ````python
      class LSTMGateExplainer:
       def explain_gates(self, important_info, current_input, memory):
         forget_decision = self.forget_gate(memory, current_input)
@@ -47,3 +46,15 @@
           return "비밀번호 관련 정보"
         return "일반 응답"
       ```` 
+  3. GRU: LSTM을 간소화해 셀 상태를 따로 두지 않고 은닉 상태에 통합해 구조를 단순화함 (업데이트 게이트, 리셋 게이트)
+  4. Transformer: self-attention 메커니즘, 인코더-디코더 구조, multi-head attention
+<br>
+
+❓추가 학습 내용
+1. BERT
+2. GPT
+
+<br>
+
+## 9-2. LSTM과 감성 분석기 실
+    
