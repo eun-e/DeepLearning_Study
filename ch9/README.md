@@ -24,7 +24,7 @@
   2. LSTM: 오래된 정보는 기억하고 불필요한 정보는 잊는 메커니즘
      - 셀 상태: 내부 메모리를 유지함
      - 게이트: 정보를 저장할지 버릴지 결정함 (입력, 출력, 망각 게이트)
-       ````python
+     ````python
      class LSTMGateExplainer:
       def explain_gates(self, important_info, current_input, memory):
         forget_decision = self.forget_gate(memory, current_input)
@@ -50,11 +50,29 @@
   4. Transformer: self-attention 메커니즘, 인코더-디코더 구조, multi-head attention
 <br>
 
-❓추가 학습 내용
+#### ❓추가 학습 내용
 1. BERT
 2. GPT
 
 <br>
 
-## 9-2. LSTM과 감성 분석기 실
-    
+## 9-2. LSTM과 감성 분석기 실습
+
+#### 🔍 개념 정리
+- Embedding 층: 단어 인덱스를 100차원 벡터로 변환하며 패딩 인덱스는(0) 별도로 학습되지 않음
+- LSTM 층: 2층 LSTM을 사용하여 시퀀스 정보를 처리함, 드롭아웃을 통해 과적합을 방지함
+- Dense 출력층: 마지막 은닉 상태를 기반으로 감성을 2개의 클래스로 분류함
+
+#### ❓추가 정리 사항
+````python
+x_train = pad_sequence(x_train_seq, batch_first=True, padding_value=0)
+````
+- pad sequence는 길이가 서로 다른 문장들을 하나의 2D,3D 텐서로 묶기 위해 짧은 문장 뒤에 의미 없는 값을 채워 길이를 동일하게 만듦
+- x_train_seq는 길이가 서로 다른 시퀀스들의 리스트
+- padding_value=0은 없는 토큰을 0으로 채움
+- batch_first는 feature를 (batch, time)이런식으로 두라는 의미
+<br>
+
+## 9-3. 추가 실습
+- Teacher Forcing: 디코더 입력에 대해 일정 확률로 실제 정답을 제공해 모델 학습을 도움
+  
