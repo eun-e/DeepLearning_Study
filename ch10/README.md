@@ -21,11 +21,13 @@
    - RIFF 헤더: 파일의 시작을 나타내며 파일 크기와 포맷 정보를 포함함
    - fmt 청크: 포맷 정보를 포함하며 샘플링 레이트, 비트 깊이, 채널 수 등을 명시함
    - data 청크: 실제 오디오 데이터를 포함함
+     
 ````python
 import librosa
 import numpy as np
 from IPython.display import Audio, display # 오디오를 불러와 화면에 출력
 ````
+
 - 샘플링 레이트 변환: 오디오 데이터를 수집할 때 샘플링 레이트가 서로 다른 경우
   1. 오디오를 tensor로 변환: torch.tensor(audio).unsqueeze(0).float()
      - (N,) 1차원 형태의 audio.shape을 (1,N)로 변경함 -> 채널 차원 추가(channel=1) <br>
