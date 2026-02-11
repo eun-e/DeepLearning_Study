@@ -28,7 +28,36 @@ from IPython.display import Audio, display # 오디오를 불러와 화면에 �
 ````
 - 샘플링 레이트 변환: 오디오 데이터를 수집할 때 샘플링 레이트가 서로 다른 경우
   1. 오디오를 tensor로 변환: torch.tensor(audio).unsqueeze(0).float()
-     - (N,) 1차원 형태의 audio.shape을 (채널 수, 샘플 수)로 변경함
-     - 원래 int 였던 자료를 float으로 자료형 바꾸기 - Pytorch 연산하려 
+     - (N,) 1차원 형태의 audio.shape을 (1,N)로 변경함 -> 채널 차원 추가(channel=1) <br>
+       ⎿ batch가 아니라 channel을 추가하는 것! batch는 DataLoader에 붙거나 모델 입력에 맞춰 추가로 unsqueeze함
+     - 원래 int 였던 자료를 float으로 자료형 바꾸기 - Pytorch 연산하기 위해서
   2. torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=new_sample_rate)
      - 점 간격을 재조정해서 새 시간축에 맞게 값을 재계산함
+     - 다운샘플링이면 aliasing을 방지하기 위해 고주파가 제거될 수 있음
+
+
+#### ❓추가 정리 사항
+- 샘플링 레이트 변환 vs 정규화
+  - 정규화는 값의 진폭(범위)을 맞추는 것
+  - 샘플링 레이트는 1초에 몇개로 쪼개서 표현했냐를 나타내는 것<br>
+    ⎿ 오디오 텐서의 shape 예시: 단일 오디오-(N,)/(1,N) vs 배치로 묶이면 (batch, channel, time)<br>
+    ⎿ 샘플링 레이트가 shape을 결정하는 건 아니고 같은 길이일 때 time 축 길이를 결정함<br>
+    ⎿ 샘플링 레이트가 다르면 같은 1초라도 time 길이와 주파수 표현 범위가 달라져서 통일함
+- 보통 샘플링 레이트 변환은 다운샘플링 but 정보 손실 발생 가능
+````text
+WHY? 사람 음성 정보는 대부분 8kHz 이하여서 나이키스트 정리에 의해 16kHz 샘플링이면 충분
+     음악이나 영상은 보통 40kHz가 넘기 때문에 다운샘플링 필요
+````
+- shape 정리
+```text
+**Channel이란? **
+````
+ 
+
+
+
+
+
+
+
+
