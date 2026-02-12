@@ -124,13 +124,29 @@ WHY? 사람 음성 정보는 대부분 8kHz 이하여서 나이키스트 정리�
 
 ## 10-2. 파이토치를 이용한 오디오 처리
 - 오디오 모델 학습을 위해서는 데이터셋 구성이 필요함 -> Dataset, DataLoader 클래스 활용
+  - Dataset: 데이터 하나를 어떻게 가져올지 정의하는 클래스 (데이터 꺼내는 방법 정의)
+  - DataLoader: Dataset에서 데이터를 꺼내서 batch로 묶어주는 도구
+    ````python
+    loader = DataLoader(dataset, batch_size=32, shuffle=True)
+    ````
+    
 - 배치 처리 설계
   - 패딩: 배치 내 모든 오디오를 가장 긴 오디오 길이에 맞춰 패딩함
   - 자르기: 모든 오디오를 동일한 길이로 자름
   - 동적 배치 크기: 비슷한 길이의 오디오끼리 묶어 배치를 구성함
 - 스펙트로그램: 오디오 신호의 시간-주파수 표현
+````python
+spectrogram_transform = torchaudio.transforms .Spectrogram( 
+  n_fft=1024,         # FFT 크기, 주파수 해상도 결정
+  win_length=1024,    # 창 함수의 길이, 시간 해상도에 영향
+  hop_length=512,     # 연속된 프레임 간의 간격, 시간 해상도 결정
+  center=True,        # 창 함수 타입
+  pad_mode="reflect", 
+  power=2.0           # 2.0은 파워 스펙트로그램, 1.0은 진폭 스펙트로그램
+  )
+````
 
-
+- MFCC
 
 
 
