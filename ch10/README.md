@@ -52,7 +52,7 @@ from IPython.display import Audio, display # 오디오를 불러와 화면에 �
      - 평균 에너지를 맞추는 것이기 때문에 평균 에너지가 1이 되면 거의 모든 샘플링이 1 근처 -> 클리핑 발생
      - 클리핑이란? 신호 값이 표현 가능한 최대 범위를 넘어가서 강제로 잘리는 현상
 
-- 푸리에 변환: 시간 영역의 신호를 주파수 영역으로 변환해 신호의 주파수 성분을 분석할 수 있게 함
+- ⭐ 푸리에 변환: 시간 영역의 신호를 주파수 영역으로 변환해 신호의 주파수 성분을 분석할 수 있게 함
   - 신호에 어떤 주파수들이 섞여 있는지 알려줌 but 시간 정보가 사라짐 -> STFT 등장 이유 
   - STFT: 오디오 신호를 작은 시간 창으로 나누고, 각 창에 대해 푸리에 변환을 적용해 시간에 따른 주파수 변화 분석
   - STFT의 결과를 스펙트로그램으로 부르며, 시간-주파수-진폭의 3차원 표현임
@@ -134,7 +134,11 @@ WHY? 사람 음성 정보는 대부분 8kHz 이하여서 나이키스트 정리�
   - 패딩: 배치 내 모든 오디오를 가장 긴 오디오 길이에 맞춰 패딩함
   - 자르기: 모든 오디오를 동일한 길이로 자름
   - 동적 배치 크기: 비슷한 길이의 오디오끼리 묶어 배치를 구성함
-- 스펙트로그램: 오디오 신호의 시간-주파수 표현
+    
+- 스펙트로그램: 오디오 신호의 시간-주파수 표현 <br>
+<img width="644" height="335" alt="image" src="https://github.com/user-attachments/assets/9457f707-38b5-4fdb-9e1a-a76e9588b1e9" /> <br>
+  - x축은 시간, y축은 주파수를 나타내며 색은 세기를 나타냄
+  - 빨간색은 강한 주파수, 파란색은 약한 주파수
 ````python
 spectrogram_transform = torchaudio.transforms .Spectrogram( 
   n_fft=1024,         # FFT 크기, 주파수 해상도 결정
@@ -145,10 +149,31 @@ spectrogram_transform = torchaudio.transforms .Spectrogram(
   power=2.0           # 2.0은 파워 스펙트로그램, 1.0은 진폭 스펙트로그램
   )
 ````
+````text
+FFT는 소리를 주파수로 바꿔주는 계산 방법 = 푸리에 변환을 빠르게 계산하는 알고리즘
+
+1) n_fft는 한 번 FFT를 할 때 몇 개 샘플을 사용할지 결정 
+<img width="153" height="62" alt="image" src="https://github.com/user-attachments/assets/19bef60c-8c92-4093-8520-0951780b6c5d" />
+
+
+
+````
 
 - MFCC
+````python
+mfcc_transform = torchaudio.transforms.MFCC( 
+  sample_rate=sample_rate, 
+  n_mfcc=13,             # 추출할 MFCC 계수의 수(일반적으로 13개)
+  melkwargs={            
+    'n_fft': 1024,   
+    'n_mels': 40,        # Mel 필터 뱅크의 수
+    'hop_length': 512,  
+    'mel_scale': 'htk'
+  }
+)
+````
 
-
+- 데이터 증강 기법
 
 
 
