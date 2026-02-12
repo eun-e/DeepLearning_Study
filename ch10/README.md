@@ -151,12 +151,26 @@ spectrogram_transform = torchaudio.transforms .Spectrogram(
 ````
 ````text
 FFT는 소리를 주파수로 바꿔주는 계산 방법 = 푸리에 변환을 빠르게 계산하는 알고리즘
+☝️ "이 신호 안에 어떤 주파수가 얼마나 있는지"
 
-1) n_fft는 한 번 FFT를 할 때 몇 개 샘플을 사용할지 결정 
-<img width="153" height="62" alt="image" src="https://github.com/user-attachments/assets/19bef60c-8c92-4093-8520-0951780b6c5d" />
+1) n_fft는 한 번 FFT를 할 때 몇 개 샘플을 사용할지 결정 (몇 개의 점으로 주파수 축을 나눌지)
+   -> n_fft를 늘리면 주파수를 더 촘촘하게 나눠서 분석
+   주파수 해상도 = sample_rate/n_fft 여서 주파수 해상도도 결정함
+   ex) 16000/256 = 62.5Hz vs 16000/1024 = 15.6Hz
+       -> n_fft가 크면 계산량이 늘어나는 대신 주파수 해상도가 좋아짐
 
+2) win_length는 한 window에 들어가는 샘플 수 (보통 n_fft랑 같은 값)
+   STFT는 짧은 시간 구간만 잘라서 그 안에서 FFT를 하는 것 -> 잘라낸 한 덩어리가 window
+   ex) waveform = [[ x0 x1 x2 x3 x4 x5 x6 x7 .. ]]일 때 window 길이가 4면 [x0 x1 x2 x3]이 window 하나
+   window의 시간 길이 = win_length/sample_rate
+   -> win_length가 클수록 한 번에 긴 구간 분석 가능, 시간 변화가 더 뭉개짐
+   -> win_length가 작을수록 시간 해상도가 좋아짐
+   프레임 간 시간 간격 = hop_length/sample_rate이므로 hop_length가 작을수록 더 자주 분석함
+   -> hop_length가 작을수록 시간 해상도가 좋아짐
 
+3) center는 각 프레임을 중앙 기준으로 정렬할지 결정
 
+4) pad_mode는 padding을 어떻게 채울지 결정 (reflect는 반사해서 채움)
 ````
 
 - MFCC
@@ -172,9 +186,16 @@ mfcc_transform = torchaudio.transforms.MFCC(
   }
 )
 ````
+````text
 
-- 데이터 증강 기법
+````
 
-
+- 데이터 증강 기법: 모델 훈련 시 과적합을 방지함
+  1. 시간 스트레칭: 오디오 속도 변경
+  2. 피치 시프팅: 음높이 변경
+  3. 볼륨 조절: 볼륨 증가/감소
+  4. 노이즈 추가: 배경 노이즈 추가
+  5. 주파수 마스킹: 특정 주파수 대역 차단
+  6. 시간 마스킹: 특정 시간 구간 차단
 
 
