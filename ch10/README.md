@@ -211,9 +211,9 @@ Ex. 0Hz, 1Hz, 2Hz, 3Hz, ... 8000Hz 원래 스펙트럼이 이런식으로 촘촘
 
 log 적용해서 분포 안정화시키고 DCT통해 상관 관계를 제거해 저주파 성분만 남김 
 ````
-<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/9fd07b42-a015-4c17-9d5b-0d02e7b624fd" />
+<img width="380" height="200" alt="image" src="https://github.com/user-attachments/assets/9fd07b42-a015-4c17-9d5b-0d02e7b624fd" />
 <br>
-
+<br>
 
 - 데이터 증강 기법: 모델 훈련 시 과적합을 방지함
   1. 시간 스트레칭: 오디오 속도 변경
