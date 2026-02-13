@@ -211,6 +211,7 @@ Ex. 0Hz, 1Hz, 2Hz, 3Hz, ... 8000Hz 원래 스펙트럼이 이런식으로 촘촘
 
 log 적용해서 분포 안정화시키고 DCT통해 상관 관계를 제거해 저주파 성분만 남김 
 ````
+:
 <img width="380" height="200" alt="image" src="https://github.com/user-attachments/assets/9fd07b42-a015-4c17-9d5b-0d02e7b624fd" />
 <br>
 <br>
@@ -227,5 +228,27 @@ log 적용해서 분포 안정화시키고 DCT통해 상관 관계를 제거해 
 
 ## 10-3. WaveNet 모델 구현
 
+#### 🔍 개념 정리
+- 확장된 합성곱: 특정 간격(Dilation Factor)으로 샘플을 건너뛰며 처리함
+- 게이팅 메커니즘: WaveNet의 활성화 함수로 tanh와 sigmoid 함수의 조합 
+<img width="372" height="65" alt="image" src="https://github.com/user-attachments/assets/07c805bc-8d11-4296-bc4b-242c26d134a6" /> <br>
+- Skip Connection: 네트워크의 각 층에서 생성된 특정 맵을 최종 출력층으로 직접 전달하는 경로
+- 소프트맥스 분포: 각 샘플의 진폭을 확률 분포로 모델링함 (연속적인 값을 이산화하는 방식)
+- 자기 회귀 모델: 이전에 생성된 샘플들을 바탕으로 다음 샘플을 순차적으로 생성함 -> 병렬화가 어려움
+- 샘플링 방식
+  1. 그리디 샘플링: 항상 가장 확률이 높은 샘플을 선택함
+  2. 온도 기반 샘플링: 온도 파라미터를 조절해 확률 분포의 엔트로피를 조절함
+  3. Top-K 샘플링: 확률이 가장 높은 K개의 샘플 중에서만 선택함
+  4. Nucleus 샘플링: 누적 확률이 특정 임계값에 도달할 때까지 가장 확률이 높은 샘플들 중에서 선택함
+- 평가 방식
+  1. 객관적 평가: Mean opinion score, Signal-to-noise ratio, Log-spectral distance, Mel-cepstral distortion
+  2. 주관적 평가: AB test, MUSHRA(여러 테스트 비교)
 
+
+#### ❓ 추가 정리 사항
+- Dilataed Convolution이란? dilation d가 4면 [xt, xt+4] 이런식으로 샘플을 본다는 의미
+  - dilation을 키우는 이유: 가까운 정보도 중요하고 먼 정보도 중요하기 때문!!
+  - 1층 2층 3층 ... layer 층이 늘어날 때마다 보통 지수적으로 커짐 (1 2 4 8 16 ...)
+  - Ex) 6 layer일 때 R=1+(k−1)(1+2+4+8+16+32) 이렇게 계산됨
+  - Rnew​ = Rold ​+ (k−1)⋅d
 
