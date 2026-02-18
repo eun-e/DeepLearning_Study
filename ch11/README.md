@@ -41,7 +41,7 @@ def choose_action(self, stat e):
   - 타깃 네트워크: Q-값 업데이트의 안정성을 위해 일정 주기마다 업데이트되는 별도 네트워크를 사용   
 
 #### ❓ 추가 개념 정리
-<<Q-Learning 업데이트 식>>
+**<Q-Learning 업데이트 식>** <br>
 <img width="300" height="70" alt="image" src="https://github.com/user-attachments/assets/4a4f148c-1b64-4d23-8297-18b944da809f" />
 - 현재 Q(s,a)를 target 쪽으로 조금씩 끌어당김
 
